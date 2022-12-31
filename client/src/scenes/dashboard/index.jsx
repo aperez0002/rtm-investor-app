@@ -20,21 +20,6 @@ const Dashboard = () => {
   // console.log(userInfo._id)
   const { data, isLoading } = useGetDashboardQuery();
 
-  const liquidationValue = new Intl.NumberFormat(
-    'en-US',
-    {
-      style: 'currency',
-      currency: 'USD'
-    }
-  ).format(data.balData.securities_account.current_balances.liquidation_value)
-    
-  const cashValue = new Intl.NumberFormat(
-    'en-US',
-    {
-      style: 'currency',
-      currency: 'USD'
-    }
-  ).format(data.balData.securities_account.current_balances.available_funds)
   
   
   
@@ -103,7 +88,13 @@ const Dashboard = () => {
         {/* ROW 1 */}
         <StatBox 
           title="Liquidation Value"
-          value={data && liquidationValue}
+          value={data && new Intl.NumberFormat(
+            'en-US',
+            {
+              style: 'currency',
+              currency: 'USD'
+            }
+          ).format(data.balData.securities_account.current_balances.liquidation_value)}
           increase="+14%"
           description="Since last month"
           icon={
@@ -112,7 +103,13 @@ const Dashboard = () => {
         />
         <StatBox 
           title="Cash"
-          value={data && cashValue}
+          value={data && new Intl.NumberFormat(
+            'en-US',
+            {
+              style: 'currency',
+              currency: 'USD'
+            }
+          ).format(data.balData.securities_account.current_balances.available_funds)}
           increase="+21%"
           description="Since last month"
           icon={
