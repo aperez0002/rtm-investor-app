@@ -31,6 +31,7 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
+            
             <Route element={<ProtectedRoute />}>
               <Route element={<Layout />}>
                 <Route path="/" element={<Navigate to ="dashboard" replace />} />
@@ -49,6 +50,7 @@ function App() {
             <Route path="/" element={<HomeScreen />} />
             <Route path='/login' element={<LoginScreen />} />
             <Route path='/register' element={<RegisterScreen />} />
+            
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

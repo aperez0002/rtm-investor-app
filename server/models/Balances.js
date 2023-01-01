@@ -233,12 +233,10 @@ const BalancesSchema = new Schema(
                         type: Number
                     }            
         }
-    }
     },
-    
-    {
-        timestamps: true
-    }
+    createdAt: Date,
+    updatedAt: Date,
+    },
 );
 
 const Balances = model('Balances', BalancesSchema);

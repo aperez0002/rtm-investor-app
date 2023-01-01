@@ -27,6 +27,10 @@ import {
     AdminPanelSettingsOutlined,
     TrendingUpOutlined,
     PieChartOutlined,
+    InsightsOutlined,
+    TimelineOutlined
+
+
 } from "@mui/icons-material";
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
@@ -43,41 +47,31 @@ const navItems = [
         icon: null
     },
     {
-        text: "Products",
-        icon: <ShoppingCartOutlined />
-    },
-    {
-        text: "Customers",
-        icon: <Groups2Outlined />
-    },
-    {
-        text: "Transactions",
-        icon: <ReceiptLongOutlined />
-    },
-    {
-        text: "Geography",
-        icon: <PublicOutlined />
-    },
-    {
-        text: "Capital Account Details",
-        icon: null
-    },
-    {
-        text: "Overview",
-        icon: <PointOfSaleOutlined />
-    },
-    {
         text: "Daily",
-        icon: <TodayOutlined />
+        icon: <InsightsOutlined />
     },
     {
         text: "Monthly",
-        icon: <CalendarMonthOutlined />
+        icon: <TimelineOutlined />
     },
     {
         text: "Breakdown",
         icon: <PieChartOutlined />
     },
+    {
+        text: "Transactions",
+        icon: <ReceiptLongOutlined />
+    },
+    
+    // {
+    //     text: "Geography",
+    //     icon: <PublicOutlined />
+    // },
+    {
+        text: "Capital Account Details",
+        icon: null
+    },
+   
 ]
 
 const Sidebar = ({
@@ -120,7 +114,7 @@ const Sidebar = ({
                         <FlexBetween color={theme.palette.secondary.main}>
                             <Box display='flex' alignItems="center" gap="0.5rem">
                                 <Typography variant='h4' fontWeight="bold">
-                                    Real Time Managment
+                                    Real Time Derivatives Fund
                                 </Typography>
                             </Box>
                             {!isNonMobile && (

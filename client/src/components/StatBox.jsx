@@ -28,7 +28,7 @@ const StatBox = ({ title, value, increase, icon, description }) => {
         </Typography>
         <FlexBetween gap="1rem">
             <Typography variant='h5' fontStyle="italic" sx={{ color: theme.palette.secondary.light }}>
-                {increase}
+                {increase === null ? "" : increase < 0 ? "-" : "+" }{increase === null ? "" : Math.abs(increase)+"%"}
             </Typography>
             <Typography>{description}</Typography>
         </FlexBetween>

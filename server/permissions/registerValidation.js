@@ -14,7 +14,7 @@ export const validateRegisterInput = ( data ) => {
     // check password field
     if (isEmpty(data.password)) {
         errors.password = 'Password field cannot be empty.';
-    } else if (!Validator.isLength(data.password, {min: 6, max: 150})) {
+    } else if (!Validator.isLength(data.password, {min: 5, max: 150})) {
         errors.password = 'Password must be between 6 and 150 characters long.';
     }
 

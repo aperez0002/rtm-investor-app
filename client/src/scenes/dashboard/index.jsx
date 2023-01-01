@@ -20,7 +20,11 @@ const Dashboard = () => {
   // console.log(userInfo._id)
   const { data, isLoading } = useGetDashboardQuery();
 
-  
+  if (isLoading) {
+    console.log("still loading")
+  }else{
+    console.log(data)
+  }
   
   
 
@@ -95,8 +99,9 @@ const Dashboard = () => {
               currency: 'USD'
             }
           ).format(data.balData.securities_account.current_balances.liquidation_value)}
-          increase="+14%"
-          description="Since last month"
+          increase={data && data.percentageData.liq.toFixed(2)}
+          // increase={12}
+          description="Since yesterday"
           icon={
             <Email sx={{ color: theme.palette.secondary[300], fontSize: "26px"}} />
           }
@@ -110,8 +115,9 @@ const Dashboard = () => {
               currency: 'USD'
             }
           ).format(data.balData.securities_account.current_balances.available_funds)}
-          increase="+21%"
-          description="Since last month"
+          increase={data && data.percentageData.cash.toFixed(2)}
+          // increase={-1}
+          description="Since yesterday"
           icon={
             <PointOfSale sx={{ color: theme.palette.secondary[300], fontSize: "26px"}} />
           }
@@ -128,18 +134,17 @@ const Dashboard = () => {
         
         <StatBox 
           title="Trades YTD"
-          value={data && data.thisMonthStats.totalSales}
-          increase="+43%"
-          description="Since last month"
+          value={0}
+          increase={null}
+          description=""
           icon={
             <PersonAdd sx={{ color: theme.palette.secondary[300], fontSize: "26px"}} />
           }
         />
         <StatBox 
           title="P/L YTD"
-          value={data && data.yearlySalesTotal}
-          increase="+21%"
-          description="Since last month"
+          value={0}
+          increase={null}
           icon={
             <Traffic sx={{ color: theme.palette.secondary[300], fontSize: "26px"}} />
           }
